@@ -10,7 +10,7 @@
 
 ## 📊 Model Details
 
-- **Algorithm:** Logistic Regression, Support Vector Machines, K-Nearest Neighbours, XGBOOST
+- **Algorithms:** Logistic Regression, Support Vector Machines, K-Nearest Neighbours, XGBOOST
 - **Preprocessing:** StandardScaler, OneHotEncoder
 - **Handling Class Imbalance:** SMOTE
 - **Performance Measurement:** F1-Score, Confusion Matrix 
