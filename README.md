@@ -7,8 +7,12 @@
 - **Streamlit**
 - **Pandas**
 - **NumPy**
-- **Plotly**
-- **imbalanced-learn**
 
+## 📊 Model Details
+
+- **Algorithm:** XGBOOST
+- **Preprocessing:** StandardScaler, OneHotEncoder
+- **Handling Class Imbalance:** SMOTE
+- **Cross-validation:** ROC-AUC scoring
 
 
