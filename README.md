@@ -10,7 +10,7 @@
 
 ## 📊 Model Details
 
-- **Algorithm:** XGBOOST
+- **Algorithm:** Logistic Regression, Support Vector Machines, K-Nearest Neighbours, XGBOOST
 - **Preprocessing:** StandardScaler, OneHotEncoder
 - **Handling Class Imbalance:** SMOTE
 - **Cross-validation:** ROC-AUC scoring
