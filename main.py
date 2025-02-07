@@ -8,6 +8,7 @@ from sklearn.svm import SVC
 from sklearn.neighbors import KNeighborsClassifier
 from xgboost import XGBClassifier
 from sklearn.metrics import accuracy_score, f1_score, confusion_matrix, classification_report
+from imblearn.over_sampling import SMOTE
 
 def load_prepare_and_split(uploaded_file):
     """Load and preprocess the dataset."""
@@ -29,6 +30,10 @@ def train_models(X_train, y_train):
     y_train = LabelEncoder().fit_transform(y_train)
     scaler = StandardScaler()
     X_train = scaler.fit_transform(X_train)
+    
+    # Apply SMOTE to handle class imbalance
+    smote = SMOTE(sampling_strategy='auto', random_state=42)
+    X_train, y_train = smote.fit_resample(X_train, y_train)
     
     models = {
         'Logistic Regression': (LogisticRegression(max_iter=5000),
@@ -75,7 +80,7 @@ def predict_and_measure_performance(X_test, y_test, best_models, scaler):
 
 def main():
     st.title("Disease Prediction using ML Models")
-    uploaded_file = st.file_uploader("Upload Training Data (CSV)", type=['csv'])
+    uploaded_file = st.file_uploader("Upload the dataset in CSV format", type=['csv'])
     
     if uploaded_file is not None:
         X_train, X_test, y_train, y_test = load_prepare_and_split(uploaded_file)
