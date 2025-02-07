@@ -17,8 +17,11 @@
 
 ## 🚀 Getting Started
 
-1. **Clone this repository**  
-   ```sh
-   git clone <repository-url>
-   cd <repository-name>
+1. Clone this repository: <code>git clone github.com/EngBaz/Disease-Detection-System.git</code>
 
+2. Create a virtual enviromnent
+   ```console
+    $ python -m venv .venv
+    $ .venv\Scripts\activate.bat
+    ```
+3. Install the required dependencies by running <code>pip install -r requirements.txt</code>
