@@ -10,7 +10,7 @@ from xgboost import XGBClassifier
 from sklearn.metrics import accuracy_score, f1_score, confusion_matrix, classification_report
 from imblearn.over_sampling import SMOTE
 
-def load_prepare_and_split(uploaded_file):
+def load_prepare_and_split(uploaded_file, test_size):
     """Load and preprocess the dataset."""
     data = pd.read_csv(uploaded_file)
     
@@ -20,7 +20,7 @@ def load_prepare_and_split(uploaded_file):
     X = data.drop(columns=['diagnosis'])
     y = data['diagnosis']
     
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, random_state=42, stratify=y)
     
     return X_train, X_test, y_train, y_test
 
@@ -79,11 +79,14 @@ def predict_and_measure_performance(X_test, y_test, best_models, scaler):
         st.dataframe(pd.DataFrame(report).transpose())
 
 def main():
+    # Hyperparameters
+    test_size = 0.2
+    
     st.title("Disease Prediction using ML Models")
     uploaded_file = st.file_uploader("Upload the dataset in CSV format", type=['csv'])
     
     if uploaded_file is not None:
-        X_train, X_test, y_train, y_test = load_prepare_and_split(uploaded_file)
+        X_train, X_test, y_train, y_test = load_prepare_and_split(uploaded_file, test_size)
         best_models, scaler = train_models(X_train, y_train)
         predict_and_measure_performance(X_test, y_test, best_models, scaler)
 
