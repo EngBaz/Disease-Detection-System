@@ -12,6 +12,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from xgboost import XGBClassifier
 from sklearn.metrics import f1_score, confusion_matrix
 
+
 def load_prepare_and_split(uploaded_file, test_size):
     
     """Load and preprocess the dataset, check for outliers and imbalance, and split into train/test sets."""
@@ -135,6 +136,7 @@ def main():
         best_models = train_models(X_train, y_train)
         st.write("Model training completed successfully.")
         predict_and_measure_performance(X_test, y_test, best_models)
+
 
 if __name__ == "__main__":
     main()
