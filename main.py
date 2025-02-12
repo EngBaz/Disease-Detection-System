@@ -13,13 +13,14 @@ from xgboost import XGBClassifier
 from sklearn.metrics import f1_score, confusion_matrix
 
 def load_prepare_and_split(uploaded_file, test_size):
-    """Load and preprocess the dataset, check for outliers, and split into train/test sets."""
-    
+    """Load and preprocess the dataset, check for outliers and imbalance, and split into train/test sets."""
     data = pd.read_csv(uploaded_file)
 
+    # Drop 'id' column if it exists
     if 'id' in data.columns:
         data.drop(columns=['id'], inplace=True)
     
+    # Check for missing values
     missing_values = data.isnull().sum()
     st.write("Missing values per column:", missing_values)
     
@@ -28,7 +29,8 @@ def load_prepare_and_split(uploaded_file, test_size):
         st.write("Null values detected and removed.")
     else:
         st.write("There are no null values.")
-        
+    
+    # Outlier detection using IQR
     outlier_columns = []
     for col in data.select_dtypes(include=['float64', 'int64']).columns:
         Q1 = data[col].quantile(0.25)
@@ -46,6 +48,7 @@ def load_prepare_and_split(uploaded_file, test_size):
     else:
         st.write("No significant outliers detected.")
     
+    # Plot boxplots for visualizing outliers
     if outlier_columns:
         plt.figure(figsize=(12, 6))
         sns.boxplot(data=data[outlier_columns])
@@ -53,9 +56,19 @@ def load_prepare_and_split(uploaded_file, test_size):
         plt.title("Boxplot of Columns with Outliers")
         st.pyplot(plt)
     
+    # Splitting dataset
     X = data.drop(columns=['diagnosis'])
     y = data['diagnosis']
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, random_state=42, stratify=y)
+    
+    # Check for imbalance
+    class_distribution = y.value_counts()
+    st.write("Class Distribution:", class_distribution)
+    
+    if class_distribution.min() / class_distribution.max() < 0.5:
+        st.write("Dataset is imbalanced.")
+    else:
+        st.write("Dataset is balanced.")
     
     return X_train, X_test, y_train, y_test
 
