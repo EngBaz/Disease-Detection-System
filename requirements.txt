@@ -2,3 +2,5 @@ xgboost
 streamlit
 scikit-learn
 imblearn
+matplotlib
+seaborn
