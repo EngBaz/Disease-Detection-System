@@ -14,6 +14,7 @@ from sklearn.metrics import accuracy_score, f1_score, confusion_matrix, classifi
 
 def load_prepare_and_split(uploaded_file, test_size):
     """Load and preprocess the dataset, check for outliers, and split into train/test sets."""
+    
     data = pd.read_csv(uploaded_file)
 
     # Drop 'id' column if it exists
@@ -65,6 +66,7 @@ def load_prepare_and_split(uploaded_file, test_size):
 
 def train_models(X_train, y_train):
     """Train multiple models using pipeline and return best models with parameters."""
+    
     y_train = LabelEncoder().fit_transform(y_train)
     
     models = {
@@ -95,27 +97,24 @@ def train_models(X_train, y_train):
 
 def predict_and_measure_performance(X_test, y_test, best_models):
     """Evaluate models on test data and display results in Streamlit."""
+    
     label_encoder = LabelEncoder()
     y_test_encoded = label_encoder.fit_transform(y_test)
     
     for model_name, (best_params, best_model) in best_models.items():
         y_pred = best_model.predict(X_test)
-        accuracy = accuracy_score(y_test_encoded, y_pred)
         f1 = f1_score(y_test_encoded, y_pred)
         cm = confusion_matrix(y_test_encoded, y_pred)
-        report = classification_report(y_test_encoded, y_pred, output_dict=True)
         
         st.subheader(f"Model: {model_name}")
         st.write(f"**Best Parameters:** {best_params}")
-        st.metric(label="Accuracy", value=f"{accuracy:.4f}")
         st.metric(label="F1-Score", value=f"{f1:.4f}")
         st.write("**Confusion Matrix:**")
         st.dataframe(pd.DataFrame(cm, index=label_encoder.classes_, columns=label_encoder.classes_))
-        st.write("**Classification Report:**")
-        st.dataframe(pd.DataFrame(report).transpose())
 
 def main():
     """Streamlit UI for model training and evaluation."""
+    
     test_size = 0.2
     
     st.title("Disease Prediction using ML Models")
