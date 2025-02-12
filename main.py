@@ -13,6 +13,7 @@ from xgboost import XGBClassifier
 from sklearn.metrics import f1_score, confusion_matrix
 
 def load_prepare_and_split(uploaded_file, test_size):
+    
     """Load and preprocess the dataset, check for outliers and imbalance, and split into train/test sets."""
     data = pd.read_csv(uploaded_file)
 
@@ -68,6 +69,7 @@ def load_prepare_and_split(uploaded_file, test_size):
 
 
 def train_models(X_train, y_train):
+    
     """Train multiple models using pipeline and return best models with parameters."""
     
     y_train = LabelEncoder().fit_transform(y_train)
@@ -100,6 +102,7 @@ def train_models(X_train, y_train):
 
 
 def predict_and_measure_performance(X_test, y_test, best_models):
+    
     """Evaluate models on test data and display results in Streamlit."""
     
     label_encoder = LabelEncoder()
@@ -118,6 +121,7 @@ def predict_and_measure_performance(X_test, y_test, best_models):
 
 
 def main():
+    
     """Streamlit UI for model training and evaluation."""
     
     test_size = 0.2
