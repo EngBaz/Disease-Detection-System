@@ -63,7 +63,7 @@ class PredictionTechniques:
                 outlier_columns.append(col)
         
         if outlier_columns:
-            st.subheader("Outliers:")
+            st.subheader("Box plots for dectecting outliers:")
             st.write(f"Outliers detected in the following columns: {', '.join(outlier_columns)}")
             plt.figure(figsize=(12, 6))
             sns.boxplot(data=data[outlier_columns])
