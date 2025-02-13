@@ -27,7 +27,7 @@ class PredictionTechniques:
         
         missing_values = data.isnull().sum()
         
-        st.write("Missing values per column:")
+        st.subheader("Missing values per column:")
         st.write(missing_values)
         
         if missing_values.sum() > 0:
@@ -38,7 +38,7 @@ class PredictionTechniques:
             st.write("There are no null values.")
         
         class_distribution = data['diagnosis'].value_counts()
-        st.write("Class Distribution:")
+        st.subheader("Class Distribution:")
         st.write(class_distribution)
         
         if class_distribution.min() / class_distribution.max() < 0.5:
@@ -63,6 +63,7 @@ class PredictionTechniques:
                 outlier_columns.append(col)
         
         if outlier_columns:
+            st.subheader("Outliers:")
             st.write(f"Outliers detected in the following columns: {', '.join(outlier_columns)}")
             plt.figure(figsize=(12, 6))
             sns.boxplot(data=data[outlier_columns])
@@ -132,6 +133,6 @@ class PredictionTechniques:
             
             st.subheader(f"Model: {model_name}")
             st.write(f"**Best Parameters:** {best_params}")
-            st.metric(label="Accuracy", value=f"{accuracy:.4f}")
+            st.metric(label="**Accuracy:**", value=f"{accuracy:.4f}")
             st.write("**Confusion Matrix:**")
             st.dataframe(pd.DataFrame(cm, index=label_encoder.classes_, columns=label_encoder.classes_))
