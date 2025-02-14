@@ -16,8 +16,6 @@ This project is a machine learning-based disease prediction system built with St
 
 ## 📂 Project Structure
 
-📁 disease-prediction-ml
-
 ├── 📄 main.py  
 
 ├── 📄 prediction_utils.py 
@@ -38,8 +36,7 @@ This project is a machine learning-based disease prediction system built with St
 
 - **Algorithms:** Logistic Regression, Support Vector Machines, K-Nearest Neighbours, XGBOOST
 - **Preprocessing:** StandardScaler, OneHotEncoder
-- **Handling Class Imbalance:** SMOTE
-- **Performance Measurement:** F1-Score, Confusion Matrix 
+- **Performance Measurement:** Accuracy, Confusion Matrix 
 
 ## 🚀 Getting Started
 
