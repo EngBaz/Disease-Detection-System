@@ -18,13 +18,13 @@ This project is a machine learning-based disease prediction system built with St
 
 📁 disease-prediction-ml
 
-├── 📄 main.py  # Streamlit UI & Application Logic
+├── 📄 main.py  
 
-├── 📄 prediction_utils.py  # Data Preprocessing & Model Training
+├── 📄 prediction_utils.py 
 
-├── 📄 requirements.txt  # Python Dependencies
+├── 📄 requirements.txt  
 
-├── 📄 README.md  # Documentation
+├── 📄 README.md  
 
 ## :hammer: Technologies Used
 
@@ -51,4 +51,4 @@ This project is a machine learning-based disease prediction system built with St
     $ .venv\Scripts\activate
     ```
 3. Install the required dependencies by running <code>pip install -r requirements.txt</code>
-4. 
+4. Run <code>streamlit run main.py</code>
