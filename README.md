@@ -14,6 +14,13 @@ This project is a machine learning-based disease prediction system built with St
 
 * Interactive Visualization using Streamlit
 
+## 📂 Project Structure
+
+📁 disease-prediction-ml
+├── 📄 main.py  # Streamlit UI & Application Logic
+├── 📄 prediction_utils.py  # Data Preprocessing & Model Training
+├── 📄 requirements.txt  # Python Dependencies
+├── 📄 README.md  # Documentation
 ## :hammer: Technologies Used
 
 - **Python**
@@ -36,6 +43,7 @@ This project is a machine learning-based disease prediction system built with St
 2. Create a virtual enviromnent
    ```console
     $ python -m venv .venv
-    $ .venv\Scripts\activate.bat
+    $ .venv\Scripts\activate
     ```
 3. Install the required dependencies by running <code>pip install -r requirements.txt</code>
+4. 
