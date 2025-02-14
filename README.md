@@ -17,6 +17,7 @@ This project is a machine learning-based disease prediction system built with St
 ## 📂 Project Structure
 
 📁 disease-prediction-ml
+
 ├── 📄 main.py  # Streamlit UI & Application Logic
 
 ├── 📄 prediction_utils.py  # Data Preprocessing & Model Training
