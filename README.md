@@ -2,7 +2,7 @@
 
 This project is a machine learning-based disease prediction system built with Streamlit. It allows users to upload a dataset, preprocess it, train multiple models, and evaluate their performance, all within an interactive web app.
 
-🚀 ## Features
+## 🚀 Features
 
 * Upload CSV Dataset
 
