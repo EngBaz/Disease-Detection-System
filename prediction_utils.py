@@ -16,27 +16,41 @@ class PredictionTechniques:
         self.models = models if models is not None else {}
 
     def load_prepare_and_split(self, uploaded_file):
+        
         data = pd.read_csv(uploaded_file)
         
         if 'id' in data.columns:
             data.drop(columns=['id'], inplace=True)
 
+        # Check for missing values
         missing_values = data.isnull().sum()
         st.subheader("Missing values per column:")
         st.write(missing_values)
 
+        # Remove missing values if they exist
         if missing_values.sum() > 0:
             data = data.dropna()
             st.write("Null values detected and removed.")
         else:
             st.write("There are no null values.")
 
+        # Check if data is balanced or imbalanced
         class_distribution = data['diagnosis'].value_counts()
         st.subheader("Class Distribution:")
-        st.write(class_distribution)
+        
+        # Show class distribution on a bar plot
+        plt.figure(figsize=(8, 6))
+        sns.barplot(x=class_distribution.index, y=class_distribution.values, palette="viridis")
+        plt.xlabel("Class")
+        plt.ylabel("Count")
+        plt.title("Class Distribution")
+        st.pyplot(plt)
 
-        if class_distribution.min() / class_distribution.max() < 0.5:
-            st.write("Dataset is imbalanced.")
+        total_samples = class_distribution.sum()
+        min_class_ratio = class_distribution.min() / total_samples
+        
+        if min_class_ratio < 0.2:
+            st.write("Dataset is imbalanced (Minority class is less than 20% of total samples).")
         else:
             st.write("Dataset is balanced.")
 
