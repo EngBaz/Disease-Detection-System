@@ -50,4 +50,4 @@ This project is a machine learning-based disease prediction system built with St
 
 ## Results
 
-Trained several models including <code> logistic regression </code>, <code>k-nearest neigbours</code>, <code>support vector machines</code>, and <code>XGBoost</code> using <code>GridSearchCV</code> for hyperparameter tuning.
+Trained several models including <code>logistic regression</code>, <code>k-nearest neigbours</code>, <code>support vector machines</code>, and <code>XGBoost</code> using <code>GridSearchCV</code> for hyperparameter tuning.
