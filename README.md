@@ -34,7 +34,7 @@ This project is a machine learning-based disease prediction system built with St
 
 - **Algorithms:** Logistic Regression, Support Vector Machines, K-Nearest Neighbours, XGBOOST
 - **Preprocessing:** StandardScaler
-- **Performance Measurement:** Accuracy, Confusion Matrix 
+- **Performance Measurement:** Accuracy and Confusion Matrix 
 
 ## 🚀 Getting Started
 
@@ -50,4 +50,4 @@ This project is a machine learning-based disease prediction system built with St
 
 ## Results
 
-Tried several models including <code> logistic regression </code>, <code>k-nearest neigbours</code>, <code>support vector machines</code>, and <code>XGBoost</code> using <code>GridSearchCV</code>
+Trained several models including <code> logistic regression </code>, <code>k-nearest neigbours</code>, <code>support vector machines</code>, and <code>XGBoost</code> using <code>GridSearchCV</code> for hyperparameter tuning.
