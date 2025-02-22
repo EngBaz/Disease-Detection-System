@@ -35,7 +35,7 @@ This project is a machine learning-based disease prediction system built with St
 ## 📊 Model Details
 
 - **Algorithms:** Logistic Regression, Support Vector Machines, K-Nearest Neighbours, XGBOOST
-- **Preprocessing:** StandardScaler, OneHotEncoder
+- **Preprocessing:** StandardScaler
 - **Performance Measurement:** Accuracy, Confusion Matrix 
 
 ## 🚀 Getting Started
