@@ -10,6 +10,7 @@ from sklearn.pipeline import Pipeline
 class PredictionTechniques:
     
     def __init__(self, test_size=0.2, cv=5, scoring='accuracy', models=None):
+        
         self.test_size = test_size
         self.cv = cv
         self.scoring = scoring
@@ -48,12 +49,13 @@ class PredictionTechniques:
 
         total_samples = class_distribution.sum()
         min_class_ratio = class_distribution.min() / total_samples
-        
-        if min_class_ratio < 0.2:
+                
+        if min_class_ratio < 0.3:
             st.write("Dataset is imbalanced (Minority class is less than 20% of total samples).")
         else:
             st.write("Dataset is balanced.")
 
+        # Check if there are outliers
         outlier_columns = []
         for col in data.select_dtypes(include=['float64', 'int64']).columns:
             Q1 = data[col].quantile(0.25)
@@ -77,32 +79,40 @@ class PredictionTechniques:
         else:
             st.write("No significant outliers detected.")
 
+        # Perform feature selection
         X = data.drop(columns=['diagnosis'])
         y = data['diagnosis']
 
         return train_test_split(X, y, test_size=self.test_size, random_state=42, stratify=y)
 
     def train_models(self, X_train, y_train):
+        
         y_train = LabelEncoder().fit_transform(y_train)
+        
         best_models = {}
 
         for model_name, (model, param_grid) in self.models.items():
+            
             try:
                 st.write(f"🔄 Training {model_name}...")
                 pipeline = Pipeline([
                     ('scaler', StandardScaler()),
                     ('classifier', model)
                 ])
+                
                 grid_search = GridSearchCV(pipeline, param_grid, cv=self.cv, scoring=self.scoring, n_jobs=-1)
                 grid_search.fit(X_train, y_train)
                 best_models[model_name] = (grid_search.best_params_, grid_search.best_estimator_)
+                
                 st.write(f"✅ {model_name} trained successfully!")
+                
             except Exception as e:
                 st.error(f"❌ Error training {model_name}: {e}")
 
         return best_models
 
     def predict_and_measure_performance(self, X_test, y_test, best_models):
+        
         label_encoder = LabelEncoder()
         y_test_encoded = label_encoder.fit_transform(y_test)
 
@@ -121,10 +131,12 @@ class PredictionTechniques:
                 st.metric(label="**Accuracy:**", value=f"{accuracy:.4f}")
                 st.write("**Confusion Matrix:**")
                 st.dataframe(pd.DataFrame(cm, index=label_encoder.classes_, columns=label_encoder.classes_))
+                
             except Exception as e:
                 st.error(f"❌ Error evaluating {model_name}: {e}")
 
     def check_overfitting(self, X_train, y_train, X_test, y_test, best_models):
+        
         y_train_encoded = LabelEncoder().fit_transform(y_train)
         y_test_encoded = LabelEncoder().fit_transform(y_test)
 
