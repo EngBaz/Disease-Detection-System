@@ -1,12 +1,12 @@
 # Disease Prediction using Machine Learning
 
-This project is a machine learning-based disease prediction system built with Streamlit. It allows users to upload a dataset, preprocess it, train multiple models, and evaluate their performance, all within an interactive web app.
+This project is a machine learning-based disease prediction system built with Streamlit. It preprocesses a dataset, trains multiple models, and evaluate their performance, all within an interactive web app.
 
 ## 🚀 Features
 
-* Data Preprocessing (Missing values, Outlier detection, Class distribution check)
+* Data Preprocessing (<code>Missing values</code>, <code>outlier detection</code>, <code>balanced/imbalanced dataset</code>, <scode>class distribution check</code>)
 
-* Train multiple ML models using GridSearchCV
+* Train multiple ML models using </code>GridSearchCV</code> and <code>Cross Validation</code>
 
 * Evaluate model performance (Accuracy, Confusion Matrix, Overfitting check)
 
