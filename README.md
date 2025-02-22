@@ -47,3 +47,7 @@ This project is a machine learning-based disease prediction system built with St
     ```
 3. Install the required dependencies by running <code>pip install -r requirements.txt</code>
 4. Run <code>streamlit run main.py</code>
+
+## Results
+
+Tried several models including <code> logistic regression </code>, <code>k-nearest neigbours</code>, <code>support vector machines</code>, and <code>XGBoost</code> using <code>GridSearchCV</code>
