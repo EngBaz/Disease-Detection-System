@@ -4,8 +4,6 @@ This project is a machine learning-based disease prediction system built with St
 
 ## 🚀 Features
 
-* Upload CSV Dataset
-
 * Data Preprocessing (Missing values, Outlier detection, Class distribution check)
 
 * Train multiple ML models using GridSearchCV
