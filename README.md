@@ -4,13 +4,13 @@ This project is a machine learning-based disease prediction system built with St
 
 ## 🚀 Features
 
-* Data Preprocessing (<code>Missing Values</code>, <code>Outlier Detection</code>, <code>Balanced/imbalanced Dataset</code>, <scode>Class Distribution check</code>)
+* Data Preprocessing (<code>Missing Values</code>, <code>Outlier Detection</code>, <code>Balanced/imbalanced Dataset</code>, <code>Class Distribution Check</code>)
 
 * Train multiple ML models using <code>GridSearchCV</code> and <code>Cross Validation</code>
 
 * Evaluate model performance (<code>Accuracy</code>, <code>Confusion Matrix</code>, <code>Overfitting Check</code>)
 
-* Interactive Visualization using Streamlit
+* Interactive Visualization using <code>Streamlit</code>
 
 ## 📂 Project Structure
 
