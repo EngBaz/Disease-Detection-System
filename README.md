@@ -36,18 +36,6 @@ This project is a machine learning-based disease prediction system built with St
 - **Preprocessing:** StandardScaler
 - **Performance Measurement:** Accuracy and Confusion Matrix 
 
-## 🚀 Getting Started
-
-1. Clone this repository: <code>git clone github.com/EngBaz/Disease-Detection-System.git</code>
-
-2. Create a virtual enviromnent
-   ```console
-    $ python -m venv .venv
-    $ .venv\Scripts\activate
-    ```
-3. Install the required dependencies by running <code>pip install -r requirements.txt</code>
-4. Run <code>streamlit run main.py</code>
-
-## Results
+## 🚀Results
 
 Trained several models including <code>logistic regression</code>, <code>k-nearest neigbours</code>, <code>support vector machines</code>, and <code>XGBoost</code> using <code>GridSearchCV</code> for hyperparameter tuning.
