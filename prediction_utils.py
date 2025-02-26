@@ -20,8 +20,8 @@ class PredictionTechniques:
         
         data = pd.read_csv(uploaded_file)
         
-        if 'id' in data.columns:
-            data.drop(columns=['id'], inplace=True)
+        # drop unused columns
+        data.drop(columns=['id'], inplace=True)
 
         # Check for missing values
         missing_values = data.isnull().sum()
