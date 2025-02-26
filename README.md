@@ -1,18 +1,16 @@
 # Disease Prediction using Machine Learning
 
-This project is a machine learning-based disease prediction system built with Streamlit. It allows users to upload a dataset, preprocess it, train multiple models, and evaluate their performance, all within an interactive web app.
+This project is a machine learning-based disease prediction system built with Streamlit. It preprocesses a dataset, trains multiple models, and evaluate their performance, all within an interactive web app.
 
 ## 🚀 Features
 
-* Upload CSV Dataset
+* Data Preprocessing (<code>Missing Values</code>, <code>Outlier Detection</code>, <code>Balanced/Imbalanced Dataset</code>, <code>Class Distribution Check</code>)
 
-* Data Preprocessing (Missing values, Outlier detection, Class distribution check)
+* Train multiple ML models using <code>GridSearchCV</code> and <code>Cross Validation</code>
 
-* Train multiple ML models using GridSearchCV
+* Evaluate model performance (<code>Accuracy</code>, <code>Confusion Matrix</code>, <code>Overfitting Check</code>)
 
-* Evaluate model performance (Accuracy, Confusion Matrix, Overfitting check)
-
-* Interactive Visualization using Streamlit
+* Interactive Visualization using <code>Streamlit</code>
 
 ## 📂 Project Structure
 
@@ -35,17 +33,9 @@ This project is a machine learning-based disease prediction system built with St
 ## 📊 Model Details
 
 - **Algorithms:** Logistic Regression, Support Vector Machines, K-Nearest Neighbours, XGBOOST
-- **Preprocessing:** StandardScaler, OneHotEncoder
-- **Performance Measurement:** Accuracy, Confusion Matrix 
+- **Preprocessing:** StandardScaler
+- **Performance Measurement:** Accuracy and Confusion Matrix 
 
-## 🚀 Getting Started
+## 🚀Results
 
-1. Clone this repository: <code>git clone github.com/EngBaz/Disease-Detection-System.git</code>
-
-2. Create a virtual enviromnent
-   ```console
-    $ python -m venv .venv
-    $ .venv\Scripts\activate
-    ```
-3. Install the required dependencies by running <code>pip install -r requirements.txt</code>
-4. Run <code>streamlit run main.py</code>
+Trained several models including <code>logistic regression</code>, <code>k-nearest neigbours</code>, <code>support vector machines</code>, and <code>XGBoost</code> using <code>GridSearchCV</code> for hyperparameter tuning. Reached highest accuracy with Logistic Regression.
